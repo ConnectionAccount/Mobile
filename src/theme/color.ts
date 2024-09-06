@@ -1,0 +1,20 @@
+export const Colors = {
+    primary:'#7E87F1',
+    active:'#000000',
+    disable: '#798297',
+    secondary: '#FFFFFF',
+    bg2: '#10101008',
+    btn: '#393939',
+    disable1:'#4E586E',
+    input:'#4E586E50',
+    lable:'#C7D1E7',
+    bg1:'#242A37',
+    back:'#272F3D',
+    background:'#20242F',
+    border:'#485164',
+    r:'#F80069',
+    y:'#F3CA41',
+    C:'#FFF7D6',
+    bg:'#333A4D',
+    bg3:'#00000020'
+}

@@ -1,18 +1,25 @@
-import { Image, KeyboardAvoidingView, Platform, ScrollView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Dimensions, Image, KeyboardAvoidingView, Platform, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { memo, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import style from '../../theme/style';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient';
+import { Avatar } from 'react-native-paper';
+
+const { width, height } = Dimensions.get("screen");
 
 const LoginScreen = memo(() => {
     const navigation = useNavigation();
-    const [isFocused, setIsFocused] = useState(false);
+    const [isFocused, setIsFocused] = useState<string | null>(null);
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     
   return (
     <SafeAreaView style={[style.area,{backgroundColor:Colors.bg,paddingTop:10,}]}>
     <StatusBar backgroundColor={'transparent'} translucent={true}></StatusBar>
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={{flex:1}}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{flex:1}}>
     <View style={{flex:1,marginHorizontal:20}}>
 
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -24,7 +31,7 @@ const LoginScreen = memo(() => {
             <TextInput placeholder='Email'
             selectionColor={Colors.primary}
             onFocus={() => setIsFocused('Email')}
-            onBlur={() => setIsFocused(false)}
+            onBlur={() => setIsFocused(null)}
             placeholderTextColor={Colors.lable}
             style={[style.r14, { paddingHorizontal: 10, color: Colors.secondary, flex: 1 }]}
             />
@@ -35,7 +42,7 @@ const LoginScreen = memo(() => {
             <TextInput placeholder='Password'
             secureTextEntry={isPasswordVisible}
             onFocus={() => setIsFocused('Password')}
-            onBlur={() => setIsFocused(false)}
+            onBlur={() => setIsFocused(null)}
             selectionColor={Colors.primary}
             placeholderTextColor={Colors.lable}
             style={[style.r14, { paddingHorizontal: 10, color: Colors.secondary, flex: 1 }]}
@@ -46,12 +53,14 @@ const LoginScreen = memo(() => {
         </View>
 
         <View style={{alignItems:'flex-end',marginTop:10}}>
-            <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}>
+            {/* <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}> */}
+            <TouchableOpacity onPress={()=>{}}>
             <Text style={[style.r14,{color:Colors.secondary,}]}>Forgot Password?</Text>
             </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('MyTabs')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('MyTabs')}> */}
+        <TouchableOpacity onPress={() => {}}>
         <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}
@@ -71,7 +80,8 @@ const LoginScreen = memo(() => {
 
         <View style={{flexDirection:'row',justifyContent:'center',marginBottom:10,marginTop:50}}>
             <Text style={[style.r14,{color:Colors.lable}]}>Don't have an account?</Text>
-            <TouchableOpacity onPress={()=>navigation.navigate('Signup')}>
+            {/* <TouchableOpacity onPress={()=>navigation.navigate('Signup')}> */}
+            <TouchableOpacity onPress={()=>{}}>
                 <Text style={[style.b14,{color:Colors.primary,}]}> Sign Up</Text>
             </TouchableOpacity>
         </View>
