@@ -22,10 +22,15 @@ const Drawer = memo(() => {
         //  defaultStatus="open"
         initialRouteName='NewsFeed'
         screenOptions={{drawerPosition:'left',
-        drawerStyle:{width:width/1.15,paddingLeft:10,paddingRight:10,backgroundColor:Colors.bg},
-        swipeEnabled:true,
-        overlayColor:'transparent',
-        drawerType:'front',
+        drawerStyle:{
+            width: width / 1.15,
+            paddingLeft: 10,
+            paddingRight: 10,
+            backgroundColor: Colors.bg
+        },
+        swipeEnabled: true,
+        overlayColor: 'transparent',
+        drawerType: 'front',
         // drawerHideStatusBarOnOpen:true
         
         }}
@@ -89,9 +94,6 @@ const Drawer = memo(() => {
           },
           // headerShown:false,
           }}/> */}
-  
-          
-  
       </Navigator>
     );
 })

@@ -3,6 +3,11 @@ import { NavigationRoutes, RootStackParamList } from './types';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen } from '../screens/home';
 import { LoginScreen } from '../screens/auth/login';
+import { ForgetPasswordScreen } from '../screens/auth/forget-password';
+import { IntroductionScreen } from '../screens/auth/introduction';
+import { CreateAccountScreen } from '../screens/auth/create-account';
+import { ResetPasswordScreen } from '../screens/auth/reset-password';
+import { TermScreen } from '../screens/auth/term';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const { Navigator, Screen, Group } = Stack
@@ -14,8 +19,28 @@ const AuthRootStack = () => (
         }}
     >
         <Screen
+            name={NavigationRoutes.IntroductionScreen}
+            component={IntroductionScreen}
+        />
+        <Screen
             name={NavigationRoutes.LoginScreen}
             component={LoginScreen}
+        />
+        <Screen
+            name={NavigationRoutes.ForgetPasswordScreen}
+            component={ForgetPasswordScreen}
+        />
+        <Screen
+            name={NavigationRoutes.CreateAccountScreen}
+            component={CreateAccountScreen}
+        />
+        <Screen
+            name={NavigationRoutes.TermScreen}
+            component={TermScreen}
+        />
+        <Screen
+            name={NavigationRoutes.ResetPasswordScreen}
+            component={ResetPasswordScreen}
         />
     </Group>
 )
@@ -39,8 +64,7 @@ const RootStackNavigator = () => {
     return (
         <Navigator 
             screenOptions={{ headerShown: false }}
-            // initialRouteName={NavigationRoutes.HomeScreen}
-            initialRouteName={NavigationRoutes.LoginScreen}
+            initialRouteName={NavigationRoutes.CreateAccountScreen}
         >
             {MainRootStack()}
             {AuthRootStack()}
