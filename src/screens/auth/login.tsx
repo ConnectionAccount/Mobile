@@ -24,6 +24,7 @@ import {Avatar} from 'react-native-paper';
 import * as yup from 'yup';
 import {Colors} from '../../theme/color';
 import {Field, Form} from '../../utils/form';
+import { NavigationRoutes } from '../../navigation/types';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -165,7 +166,9 @@ const LoginScreen = memo(() => {
 
                       <View style={{alignItems: 'flex-end', marginTop: 10}}>
                         {/* <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                          navigation.navigate(NavigationRoutes.ForgetPasswordScreen)
+                        }}>
                           <Text style={[style.r14, {color: Colors.secondary}]}>
                             Forgot Password?
                           </Text>
@@ -231,7 +234,10 @@ const LoginScreen = memo(() => {
                           Don't have an account?
                         </Text>
                         {/* <TouchableOpacity onPress={()=>navigation.navigate('Signup')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                          // navigation.navigate(NavigationRoutes.CreateAccountScreen)
+                          navigation.navigate(NavigationRoutes.SignupScreen)
+                        }}>
                           <Text style={[style.b14, {color: Colors.primary}]}>
                             {' '}
                             Sign Up

@@ -22,6 +22,7 @@ import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import {Field, Form} from '../../utils/form';
 import * as yup from 'yup';
+import { NavigationRoutes } from '../../navigation/types';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -69,7 +70,7 @@ const SignupScreen = memo(() => {
                           width: width / 1.4,
                           alignSelf: 'center',
                           marginVertical: 20,
-                        }}></Image>
+                        }} />
 
                       <View
                         style={[
@@ -297,7 +298,9 @@ const SignupScreen = memo(() => {
                           Don't have an account?
                         </Text>
                         {/* <TouchableOpacity onPress={() => navigation.navigate('Login')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                          navigation.navigate(NavigationRoutes.LoginScreen)
+                        }}>
                           <Text style={[style.b14, {color: Colors.primary}]}>
                             {' '}
                             Sign In

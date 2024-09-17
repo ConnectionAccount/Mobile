@@ -8,6 +8,7 @@ import { IntroductionScreen } from '../screens/auth/introduction';
 import { CreateAccountScreen } from '../screens/auth/create-account';
 import { ResetPasswordScreen } from '../screens/auth/reset-password';
 import { TermScreen } from '../screens/auth/term';
+import { SignupScreen } from '../screens/auth/signup';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const { Navigator, Screen, Group } = Stack
@@ -25,6 +26,10 @@ const AuthRootStack = () => (
         <Screen
             name={NavigationRoutes.LoginScreen}
             component={LoginScreen}
+        />
+        <Screen
+            name={NavigationRoutes.SignupScreen}
+            component={SignupScreen}
         />
         <Screen
             name={NavigationRoutes.ForgetPasswordScreen}
@@ -64,7 +69,7 @@ const RootStackNavigator = () => {
     return (
         <Navigator 
             screenOptions={{ headerShown: false }}
-            initialRouteName={NavigationRoutes.CreateAccountScreen}
+            initialRouteName={NavigationRoutes.IntroductionScreen}
         >
             {MainRootStack()}
             {AuthRootStack()}

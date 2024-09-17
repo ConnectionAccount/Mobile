@@ -8,6 +8,7 @@ export enum NavigationRoutes {
     TermScreen = "TermScreen",
     CreateAccountScreen = "CreateAccountScreen",
     ResetPasswordScreen = "ResetPasswordScreen",
+    SignupScreen = "SignupScreen",
     
     TestSheet = "TestSheet"
 }
@@ -20,6 +21,7 @@ export type RootStackParamList = {
     CreateAccountScreen: undefined;
     TermScreen: undefined;
     ResetPasswordScreen: undefined;
+    SignupScreen: undefined;
 }
 
 export type BottomSheetParamList = {

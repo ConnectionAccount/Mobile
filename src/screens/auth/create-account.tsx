@@ -41,7 +41,9 @@ const CreateAccountScreen = memo(() => {
               elevation={0}
               leading={
                 //   <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {
+                  navigation.goBack();
+                }}>
                   <Icon name="arrow-back" color={Colors.secondary} size={30} />
                 </TouchableOpacity>
               }

@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import style from '../../theme/style';
 import { Colors } from '../../theme/color';
 import { IntroItem } from '../../components/auth/intro-item';
+import { NavigationRoutes } from '../../navigation/types';
 
 const Slides = [
     {
@@ -59,7 +60,9 @@ const IntroductionScreen = memo(() => {
                 {currentSlideIndex == 0 ? (
                     <View style={{ paddingVertical: 20, paddingTop: 50, flexDirection: 'row', alignItems: 'center' }}>
                         {/* <TouchableOpacity onPress={() => navigation.navigate('Login')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate(NavigationRoutes.LoginScreen)
+                        }}>
                             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
                                 colors={['#E37FDE', '#7E87F1',]} style={[style.btn, { width: width / 2.5, alignItems: 'center', }]}>
                                 <Text style={[style.btntxt]}>Sign In</Text>
@@ -67,7 +70,11 @@ const IntroductionScreen = memo(() => {
                         </TouchableOpacity>
                         <View style={{ margin: 10 }}></View>
                         {/* <TouchableOpacity onPress={() => navigation.navigate('Signup')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                            // navigation.navigate(NavigationRoutes.CreateAccountScreen)
+                            // navigation.navigate(NavigationRoutes.Sign)
+                            navigation.navigate(NavigationRoutes.SignupScreen)
+                        }}>
                             <View style={[style.btn, { backgroundColor: 'transparent' ,borderColor:Colors.primary,borderWidth:1,width:width/2.5}]}>
                                     <Text style={[style.btntxt]}>Sign Up</Text>
                                 </View>
@@ -85,7 +92,9 @@ const IntroductionScreen = memo(() => {
                         </TouchableOpacity>
                         <View style={{ margin: 10 }}></View>
                         {/* <TouchableOpacity onPress={() => navigation.navigate('Signup')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate(NavigationRoutes.SignupScreen)
+                        }}>
                             <View style={[style.btn, { backgroundColor: 'transparent' ,borderColor:Colors.primary,borderWidth:1,width:width/2.5}]}>
                                     <Text style={[style.btntxt]}>Sign Up</Text>
                                 </View>
@@ -100,9 +109,11 @@ const IntroductionScreen = memo(() => {
                                 <Text style={[style.btntxt]}>Sign In</Text>
                             </LinearGradient>
                         </TouchableOpacity>
-                        <View style={{ margin: 10 }}></View>
+                        <View style={{ margin: 10 }} />
                         {/* <TouchableOpacity onPress={() => navigation.navigate('Signup')}> */}
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate(NavigationRoutes.SignupScreen)
+                        }}>
                             <View style={[style.btn, { backgroundColor: 'transparent' ,borderColor:Colors.primary,borderWidth:1,width:width/2.5}]}>
                                     <Text style={[style.btntxt]}>Sign Up</Text>
                                 </View>
