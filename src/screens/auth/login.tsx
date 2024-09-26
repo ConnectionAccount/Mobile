@@ -25,6 +25,9 @@ import * as yup from 'yup';
 import {Colors} from '../../theme/color';
 import {Field, Form} from '../../utils/form';
 import { NavigationRoutes } from '../../navigation/types';
+import * as AuthApi from "../../apis/auth";
+import { useDispatch } from 'react-redux';
+import { setAuth } from '../../store/auth';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -37,13 +40,20 @@ const schema = yup.object().shape({
 
 const LoginScreen = memo(() => {
   const navigation = useNavigation();
+  const dispatch = useDispatch()
   const [isFocused, setIsFocused] = useState<string | null>(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const [data] = React.useState({email: '', password: ''});
 
-  const onSubmit = (e: ChangeFormProps) => {
-    console.log(e);
+  const onSubmit = async (e: ChangeFormProps) => {
+    try {
+      const response = await AuthApi.login(e);
+      dispatch(setAuth(response.accessToken));
+    } catch (error) {
+      console.log(error)
+      throw error;
+    }
   };
 
   return (
@@ -70,7 +80,6 @@ const LoginScreen = memo(() => {
                       <View
                         style={[
                           style.inputContainer,
-                          // { marginTop: 40, borderColor: isFocused === 'Email' ? Colors.primary : Colors.input, backgroundColor: isFocused === 'Email' ? null : Colors.input}
                           {marginTop: 40},
                           isFocused === 'Email'
                             ? {borderColor: Colors.primary}
@@ -165,7 +174,6 @@ const LoginScreen = memo(() => {
                       </View>
 
                       <View style={{alignItems: 'flex-end', marginTop: 10}}>
-                        {/* <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}> */}
                         <TouchableOpacity onPress={() => {
                           navigation.navigate(NavigationRoutes.ForgetPasswordScreen)
                         }}>
@@ -175,7 +183,6 @@ const LoginScreen = memo(() => {
                         </TouchableOpacity>
                       </View>
 
-                      {/* <TouchableOpacity onPress={() => navigation.navigate('MyTabs')}> */}
                       <TouchableOpacity onPress={() => handleSubmit()}>
                         <LinearGradient
                           start={{x: 0, y: 0}}
@@ -233,9 +240,7 @@ const LoginScreen = memo(() => {
                         <Text style={[style.r14, {color: Colors.lable}]}>
                           Don't have an account?
                         </Text>
-                        {/* <TouchableOpacity onPress={()=>navigation.navigate('Signup')}> */}
                         <TouchableOpacity onPress={() => {
-                          // navigation.navigate(NavigationRoutes.CreateAccountScreen)
                           navigation.navigate(NavigationRoutes.SignupScreen)
                         }}>
                           <Text style={[style.b14, {color: Colors.primary}]}>

@@ -102,6 +102,7 @@ export class HttpRequest {
             );
             const http = new HttpHandler(res.status);
             const response = await http.handle(res);
+            console.log("  response  -------    =========  ", JSON.stringify(res))
             return response;
         } catch (error) {
             if (this.errorHandler) {

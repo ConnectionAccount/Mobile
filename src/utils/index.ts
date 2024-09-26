@@ -3,7 +3,7 @@ import { HttpRequest as BaseHttpRequest } from "./http-request";
 import { DeviceEventEmitter } from "react-native";
 
 export class HttpRequest extends BaseHttpRequest {
-    uri = "http://localhost:3000/";
+    uri = "http://localhost:3000/api";
     errorHandler = (statusCode: number, error: HttpHandler) => {
         DeviceEventEmitter.emit("http.handler.error", {
             error,

@@ -27,9 +27,7 @@ import style from '../../theme/style';
 import {Colors} from '../../theme/color';
 import {Field, Form} from '../../utils/form';
 import * as yup from 'yup';
-
-// const width = Dimensions.get('screen').width
-// const height = Dimensions.get('screen').height
+import * as AuthApi from "../../apis/auth";
 
 const schema = yup.object().shape({
   email: yup.string().required('Заавал бөглөнө үү!'),
@@ -47,7 +45,16 @@ const ForgetPasswordScreen = memo(() => {
 
   const [data] = React.useState({email: ''});
 
-  const onSubmit = (e: ChangeFormProps) => {};
+  const onSubmit = async (e: ChangeFormProps) => {
+    try {
+      console.log("first : ", e)
+      const response = await AuthApi.forgot(e)
+      console.log("response : ", response);
+    } catch (error) {
+      console.log(error)
+      throw error;
+    }
+  };
 
   return (
     <SafeAreaView

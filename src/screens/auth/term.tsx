@@ -45,7 +45,7 @@ const TermScreen = memo(() => {
             <TouchableOpacity onPress={() => {}}>
               <Icon name="arrow-back" color={Colors.secondary} size={30} />
             </TouchableOpacity>
-          }
+          } 
         />
 
         <ScrollView showsVerticalScrollIndicator={false}>
