@@ -1,13 +1,15 @@
-import { BottomSheetParamList, NavigationRoutes } from "./types";
-import { createBottomSheetNavigator } from "@th3rdwave/react-navigation-bottom-sheet";
-import { WithSafeAreaInsetsProps, withSafeAreaInsets } from "react-native-safe-area-context";
-import { TestSheet } from "../sheets/test";
-import { SheetBackdrop } from "../components/bottom-sheet-backdrop";
-import { RootStackNavigator } from "./root-stack-navigator";
-
+import {BottomSheetParamList, NavigationRoutes} from './types';
+import {createBottomSheetNavigator} from '@th3rdwave/react-navigation-bottom-sheet';
+import {
+  WithSafeAreaInsetsProps,
+  withSafeAreaInsets,
+} from 'react-native-safe-area-context';
+import {TestSheet} from '../sheets/test';
+import {SheetBackdrop} from '../components/bottom-sheet-backdrop';
+import {RootStackNavigator} from './root-stack-navigator';
 
 const BottomSheet = createBottomSheetNavigator<BottomSheetParamList>();
-const { Navigator, Screen, Group } = BottomSheet;
+const {Navigator, Screen, Group} = BottomSheet;
 
 type Props = WithSafeAreaInsetsProps;
 // git remote add origin https://github.com/ConnectionAccount/Front.git
@@ -32,15 +34,15 @@ type Props = WithSafeAreaInsetsProps;
 // const BottomSheetRootStack = withSafeAreaInsets(_BottomSheetRootStack);
 
 const BottomSheetNavigator = () => {
-    return (
-        <Navigator>
-            <Screen
-                name={NavigationRoutes.TestSheet}
-                component={RootStackNavigator}
-            />
-            {/* <BottomSheetRootStack /> */}
-        </Navigator>
-    )
-}
+  return (
+    <Navigator>
+      <Screen
+        name={NavigationRoutes.TestSheet}
+        component={RootStackNavigator}
+      />
+      {/* <BottomSheetRootStack /> */}
+    </Navigator>
+  );
+};
 
-export { BottomSheetNavigator }
+export {BottomSheetNavigator};

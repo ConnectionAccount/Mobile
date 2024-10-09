@@ -28,28 +28,28 @@ const CreateAccountScreen = memo(() => {
   return (
     <SafeAreaView
       style={[style.area, {backgroundColor: Colors.bg, paddingTop: 10}]}>
-      <StatusBar backgroundColor={'transparent'} translucent={true}></StatusBar>
+      <StatusBar backgroundColor={'transparent'} translucent={true} />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={{flex: 1}}>
         <View style={{flex: 1, marginHorizontal: 20, paddingTop: 10}}>
-            <AppBar
-              color={Colors.bg}
-              title="Create An Account"
-              titleStyle={[style.m18, {color: Colors.secondary}]}
-              centerTitle={true}
-              elevation={0}
-              leading={
-                //   <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-                <TouchableOpacity onPress={() => {
+          <AppBar
+            color={Colors.bg}
+            title="Create An Account"
+            titleStyle={[style.m18, {color: Colors.secondary}]}
+            centerTitle={true}
+            elevation={0}
+            leading={
+              //   <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+              <TouchableOpacity
+                onPress={() => {
                   navigation.goBack();
                 }}>
-                  <Icon name="arrow-back" color={Colors.secondary} size={30} />
-                </TouchableOpacity>
-              }
-            />
+                <Icon name="arrow-back" color={Colors.secondary} size={30} />
+              </TouchableOpacity>
+            }
+          />
           <TouchableWithoutFeedback>
-
             <ScrollView showsVerticalScrollIndicator={false}>
               <Avatar.Image
                 source={require('../../assets/image/a4.png')}
@@ -58,8 +58,8 @@ const CreateAccountScreen = memo(() => {
                   backgroundColor: Colors.bg,
                   alignSelf: 'center',
                   marginTop: 30,
-                }}></Avatar.Image>
-
+                }}
+              />
               <View
                 style={[
                   style.inputContainer,
